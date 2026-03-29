@@ -68,16 +68,18 @@ nav .container {
 .nav-links a {
     text-decoration: none;
     color: var(--text-white);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     transition: 0.3s;
 }
 
 .btn-small {
     background: var(--accent);
-    color: #000 !important;
-    padding: 10px 20px;
+    color: #4B0082 !important;
+    padding: 8px 14px;
     border-radius: 8px;
+    white-space: nowrap;
+    font-weight: 600;
 }
 
 /* Hero Section */
@@ -293,22 +295,33 @@ footer {
 
 @media (max-width: 968px) {
     .container {
-        padding: 0 24px;
+        padding: 0 16px;
     }
     .hero {
-        padding: 120px 0 60px;
+        padding: 100px 0 50px;
         text-align: center;
+    }
+    /* Show only the download button in nav on mobile */
+    .nav-links {
+        gap: 12px;
+    }
+    .nav-links li:not(:last-child) {
+        display: none;
+    }
+    .btn-small {
+        font-size: 11px;
+        padding: 6px 10px;
     }
     .hero .container {
         flex-direction: column;
         gap: 40px;
     }
     .hero h1 {
-        font-size: 32px;
+        font-size: 26px !important;
         margin-bottom: 20px;
     }
     .hero p {
-        font-size: 16px;
+        font-size: 15px;
         margin-bottom: 30px;
     }
     .cta-buttons {
@@ -321,18 +334,11 @@ footer {
         justify-content: center;
     }
     .hero-image {
-        display: none; /* Hide large image on small mobile for faster load */
+        display: none;
     }
     .feature-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-    .section-title {
-        font-size: 24px;
-        margin-bottom: 40px;
-    }
-    .nav-links {
-        display: none; /* Can be replaced by a hamburger menu later if needed */
     }
 }
 
