@@ -177,17 +177,30 @@ nav .container {
     100% { transform: translateY(0px); }
 }
 
-/* Features */
-.features {
-    padding: 100px 0;
+/* Header adjustments for PC & Mobile */
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff, #ffd200);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
 }
 
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 60px;
-    color: var(--primary);
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
 }
 
 .feature-grid {
@@ -279,14 +292,85 @@ footer {
 }
 
 @media (max-width: 968px) {
+    .container {
+        padding: 0 24px;
+    }
+    .hero {
+        padding: 120px 0 60px;
+        text-align: center;
+    }
     .hero .container {
         flex-direction: column;
-        text-align: center;
+        gap: 40px;
+    }
+    .hero h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 30px;
     }
     .cta-buttons {
         justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-image {
+        display: none; /* Hide large image on small mobile for faster load */
     }
     .feature-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    .nav-links {
+        display: none; /* Can be replaced by a hamburger menu later if needed */
+    }
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(15, 58, 112, 0.9);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    width: max-content;
+    max-width: 90%;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Extra small mobile fixes */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    .download-box {
+        padding: 30px 20px;
     }
 }
